@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head></head>
+	<body>
+		<script>
+
+function myFunction(event) {
+	event.preventDefault();
+    var y =  document.getElementById("frm1").value;
+	document.cookie = "username="+y;
+    var why = document.cookie;
+    var res = why.substring(8);
+	var x = "http://"+ document.cookie +".tumblr.com/js";
+	document.write(why);
+    //document.getElementById("tumblrrun").src = x;
+    history.go(0);
+};
+
+</script>
+
+		<script type="text/javascript" id="tumblrrun" src="http://socialmediahookedup.tumblr.com/js" style="float:right;"></script>
+
+<form action="form_action.asp">
+  Tumblr  Blog Name: <input id="frm1" type="text" name="username" style="float:left;"><br>
+  <input type="button" onclick="myFunction(event);" value="submit" style="float:left;">
+</form>
+</body>
+</html>
