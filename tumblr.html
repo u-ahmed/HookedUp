@@ -1,0 +1,19 @@
+<html>
+<body>
+    <form onSubmit="handleSubmit(event)">
+        Tumblr Username:<br>
+        <input type="text" name="username">
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <script id="theScript" type="text/javascript"></script>
+    <script>
+      function handleSubmit(e) {
+        e.preventDefault();
+        var username = document.querySelector('[name="username"]').value;
+        document.getElementById('theScript').src = username + '.tumblr.com/js';
+      }
+    </script>
+</body>
+</html>
