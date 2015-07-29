@@ -23,12 +23,11 @@ if (token != ""){
 	// document.write(token);
 	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
 
-	document.write(link);
-	document.getElementById('please').src = link;
+var x = JSON.parse(link);
+	document.write(x);
 }
 };
 
 </script>
-<script type="text/javascript" id="please" src=link></script>
 </body>
 </html>
