@@ -15,6 +15,8 @@ function myFunction() {
 function instagramclick(){
 	alert("button clicked");
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/instagram.html&response_type=token";
+	var token = window.location.href.substring(48);
+	window.location(-1);
     }
 window.onload = function writedamnyou(){
 var token = window.location.href.substring(48);
