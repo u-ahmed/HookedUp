@@ -15,21 +15,16 @@ function myFunction() {
 function instagramclick(){
 	alert("button clicked");
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/instagram.html&response_type=token";
-	var token = window.location.href.substring(48);
-	window.location(-1);
     }
 window.onload = function writedamnyou(){
 var token = window.location.href.substring(48);
 if (token != ""){
 	document.write(token);
-	var fso = new ActiveXObject("Scripting.FileSystemObject");
-	var fh = fso.OpenTextFile("instagramtoken.txt",8,true,0);
-	fh.WriteLine(", ,"+ token);
-	fh.Close();
+
 }
 };
 
 </script>
-
+https://api.instagram.com/v1/users/self/feed?access_token=" + token
 </body>
 </html>
