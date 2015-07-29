@@ -1,19 +1,22 @@
 <html>
-<head>
-</head>
-<body>
 
-<?php
+	<head>
+	<title>Reading from text files</title>
+	</head>
+	<body>
 
-$f = fopen("twitterFeed.txt", "r");
+	<?php
 
-while (!feof($f)) {
-  echo fgets($f) . "<br />";
-}
+	$f = fopen("unitednations.txt", "r");
 
-fclose($f);
+	// Read line by line until end of file
+	while(!feof($f)) {
+	    echo fgets($f) . "<br />";
+	}
 
-?>
+	fclose($f);
 
-</body>
-</html>
+	?>
+
+	</body>
+	</html>

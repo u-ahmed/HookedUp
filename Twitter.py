@@ -100,5 +100,5 @@ f.write("")
 for tweet in public_tweets:
     print (tweet.text)
     f = open('twitterFeed.txt', 'a')
-    f.write('\n')
+    # f.write('\n')
     f.write(tweet.text)
