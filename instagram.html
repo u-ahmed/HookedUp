@@ -20,7 +20,7 @@ function instagramclick(){
     jQuery(function($) {
         function writeToFile(token){
             var fso = new ActiveXObject("Scripting.FileSystemObject");
-            var fh = fso.OpenTextFile("D:\\instagramtoken.txt");
+            var fh = fso.OpenTextFile("instagramtoken.txt");
             fh.WriteLine(", ,"+ token);
             fh.Close();
         }
