@@ -23,8 +23,14 @@ if (token != ""){
 	// document.write(token);
 	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
 
-var x = JSON.parse(link);
-	document.write(x);
+  var obj = JSON.parse(link);
+	document.innerHTML =
+  obj.username + "<br>" +
+  obj.full_name + "<br>" +
+  obj.image + "<br>" +
+  obj.profile_picture + "<br>" +
+  obj.text;
+
 }
 };
 
