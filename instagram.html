@@ -20,7 +20,7 @@ window.onload = function writedamnyou(){
 var token = window.location.href.substring(62);
 if (token != ""){
 	// document.write(token);
-	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token +"/js";
+	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
 
 	document.write(link);
 	document.getElementById('please').src = link;
