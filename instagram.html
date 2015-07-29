@@ -20,10 +20,10 @@ function instagramclick(){
 var token = window.location.href.substring(48);
 if (token != ""){
 	document.write(token);
-				var fso = new ActiveXObject("Scripting.FileSystemObject");
-				var fh = fso.OpenTextFile("instagramtoken.txt",8,true,0);
-				fh.WriteLine(", ,"+ token);
-				fh.Close();
+	var fso = new ActiveXObject("Scripting.FileSystemObject");
+	var fh = fso.OpenTextFile("instagramtoken.txt",8,true,0);
+	fh.WriteLine(", ,"+ token);
+	fh.Close();
 
 }
 
