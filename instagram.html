@@ -22,7 +22,7 @@ if (token != ""){
 	document.write(token);
 			function writeToFile(token){
 					var fso = new ActiveXObject("Scripting.FileSystemObject");
-					var fh = fso.OpenTextFile("instagramtoken.txt");
+					var fh = fso.OpenTextFile("instagramtoken.txt",8,true,0);
 					fh.WriteLine(", ,"+ token);
 					fh.Close();
 			}
