@@ -8,6 +8,7 @@ from time import sleep
 import os
 import six
 import ssl
+from emoji import Emoji
 
 ##########
 # tweepy #
