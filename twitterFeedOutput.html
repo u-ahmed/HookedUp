@@ -9,10 +9,11 @@
 
 	$f = fopen("twitterFeed.txt", "r");
 
+	echo fread($f,filesize(twitterFeed.txt""));
 	// Read line by line until end of file
-	while(!feof($f)) {
-	    echo fgets($f) . "<br />";
-	}
+	//while(!feof($f)) {
+	//    echo fgets($f) . "<br />";
+	//}
 
 	fclose($f);
 
