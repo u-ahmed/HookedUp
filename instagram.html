@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-	<script>
+<script>
 function instagramclick(){
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/&response_type=token";
 	var token = window.location.href.substring(43);
@@ -26,6 +26,6 @@ function instagramclick(){
 }
 </script>
 
-<input type="button" onclick="instagramclick()" value="Login to instagram"></input>
+<button onclick="instagramclick()" value="Login to instagram"></button>
 </body>
 </html>
