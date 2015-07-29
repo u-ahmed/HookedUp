@@ -6,7 +6,6 @@ from requests.exceptions import Timeout
 from threading import Thread
 from time import sleep
 import os
-import urllib2
 import six
 import ssl
 
@@ -23,21 +22,13 @@ from tweepy.error import TweepError
 from tweepy.utils import import_simplejson
 json = import_simplejson()
 
-#############
-# clockwork #
-#############
-
-from clockwork import clockwork
-
-api = clockwork.API('146ac839459530e7910f2613900c07c845aec86b')
-message = clockwork.SMS(to = "447455968412", message = "Test")
-response = api.send(message)
-
+''''
 if response.success:
     print(response.id)
 else:
     print(response.error_code)
     print(response.error_description)
+'''
 
 STREAM_VERSION = '1.1'
 
@@ -104,5 +95,10 @@ filtering code, may be useful.
 api = tweepy.API(auth)
 
 public_tweets = api.home_timeline()
+f = open('twitterFeed.txt', 'w')
+f.write("")
 for tweet in public_tweets:
     print (tweet.text)
+    f = open('twitterFeed.txt', 'a')
+    f.write('\n')
+    f.write(tweet.text)

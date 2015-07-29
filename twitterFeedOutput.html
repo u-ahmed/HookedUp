@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+<body>
+
+<?php
+
+$f = fopen("twitterFeed.txt", "r");
+
+while (!feof($f)) {
+  echo fgets($f) . "<br />";
+}
+
+fclose($f);
+
+?>
+
+</body>
+</html>
