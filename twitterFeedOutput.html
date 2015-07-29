@@ -7,16 +7,11 @@
 
 	<?php
 
-	$f = fopen("twitterFeed.txt", "r");
-
-	echo fread($f,filesize(twitterFeed.txt""));
+echo file_get_contents("twitterFeed.txt");
 	// Read line by line until end of file
 	//while(!feof($f)) {
 	//    echo fgets($f) . "<br />";
 	//}
-
-	fclose($f);
-
 	?>
 
 	</body>

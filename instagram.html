@@ -24,7 +24,7 @@ if (token != ""){
 	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
 
   var obj = JSON.parse(link);
-	document.innerHTML =
+	document.getElementById("no").innerHTML =
   obj.username + "<br>" +
   obj.full_name + "<br>" +
   obj.image + "<br>" +
@@ -35,5 +35,6 @@ if (token != ""){
 };
 
 </script>
+<p id="no"></p>
 </body>
 </html>
