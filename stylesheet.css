@@ -1,5 +1,5 @@
 #container {
-	background-color: rgb(200, 255, 255);
+	background-color: rgba(245, 245, 245, 0.4);
 	width: 1020px;
 	min-height: 100%;
 	margin-left: 125px;
@@ -10,14 +10,69 @@ body, html {
 	height: 100%;
 }
 
+.loginform ul {
+    padding: 0;
+    margin: 0;
+	font-size: 25px;
+	font-family: 'Georgia', serif;
+}
+.loginform li {
+	margin-left: 62px;
+	display: inline;
+    float: left;
+	font-size: 25px;
+	font-family: 'Georgia', serif;
+
+}
+.registerform ul {
+    padding: 0;
+    margin: 0;
+	font-size: 25px;
+	font-family: 'Georgia', serif;
+}
+.registerform li {
+	margin-left: 62px;
+	display: inline;
+    float: left;
+	font-size: 25px;
+	font-family: 'Georgia', serif;
+
+}
+
+.loginform input[type=submit] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #64c8ef; 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64c8ef', endColorstr='#00a2e2',GradientType=0 );
+    color: #fff;
+    padding: 5px 15px;
+    margin-left: 230px;
+    margin-top: 0;
+    border-radius: 5px;
+    font-family: 'Georgia', serif;
+	font-size: 25px;
+	text-align: center;
+	float: center;
+}
+
+.registerform input[type=submit] {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: #64c8ef; 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64c8ef', endColorstr='#00a2e2',GradientType=0 );
+    color: #fff;
+    padding: 5px 15px;
+    margin-left: 170px;
+    margin-top: 0;
+    border-radius: 5px;
+    font-family: 'Georgia', serif;
+	font-size: 25px;
+	text-align: center;
+	float: center;
+}
 
 th, td{
     text-align: left;
     font-family: 'Georgia', serif;
 	font-size: 25px;
-
-
-
 }
 
 .links {
@@ -31,7 +86,7 @@ th, td{
 .links a
 {
     display:block;
-    font-size: 50px;
+    font-size: 40px;
     text-decoration: none;
     color: black;
     text-align: center;
@@ -39,7 +94,9 @@ th, td{
 
 .links a:hover{
 	border: 1px #33CCFF;
-    background-color: #33CCFF;
+    background-color: #33CCFF; 
+
+	
 }
 
 .links a:active{
@@ -49,12 +106,12 @@ th, td{
 
 .logo
 {
-	width: 15%;
+	
+	width: 10%;
 	display: block;
-	margin: 0 auto;
-	text-align: center;
-	float: left;
-    margin: 10px 10px 10px 10px;
+	margin-right: 30px ;
+	margin-top: 15px ;
+	text-align: left;
 }
 
 h1 {

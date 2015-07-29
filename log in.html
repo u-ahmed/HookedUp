@@ -6,7 +6,7 @@
 	
 	<style>
 	body {
-	background: url(Background1.jpg) no-repeat ; 
+	background: url(Background2.jpg) no-repeat ; 
 	width: 100%;
 	height: 100%;
 	}
@@ -28,9 +28,30 @@
 		<td width="790" rowspan="6" class="mainbod">
 		<center align>
 			<h1>Welcome to <br> HookedUp</h1>
-			<p>Here you can log into our website or create a new account:</p>
-			<br><br><br><br><br><br><br>
+			<p><em>Here you can log into our website:</em></p>
 			
+			<section class="loginform cf">
+<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+    <ul>
+	
+        <li><label for="usermail">Email</label>
+        <input type="email" name="usermail" placeholder="yourname@email.com" required></li>
+        <li><label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" required></li>
+        <li><br><br>
+        <input type="submit" value="Login"></li>
+    </ul>
+</form>
+</section>
+			<br><br><br><br><br>
+			
+		</td>
+	</tr>
+	<tr>
+		<td  width="200" class="links">
+			<a href="register.html" style="display:block">
+				Register
+			</a>
 		</td>
 	</tr>
 
@@ -47,27 +68,7 @@
 			</a>
 		</td>
 	</tr>
-	<tr>
-		<td  width="200" class="links">
-			<a href="portal.html" style="display:block">
-				Portal
-			</a>
-		</td>
-	</tr>
-	<tr>
-		<td  width="200" class="links">
-			<a href="contact.html" style="display:block">
-				Contact
-			</a>
-		</td>
-	</tr>
-	<tr>
-		<td  width="200" class="links">
-			<a href="news.html" style="display:block">
-				News
-			</a>
-		</td>
-	</tr>
+
 
 </table>
 </div>
