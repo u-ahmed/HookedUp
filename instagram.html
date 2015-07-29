@@ -20,11 +20,13 @@ window.onload = function writedamnyou(){
 var token = window.location.href.substring(62);
 if (token != ""){
 	// document.write(token);
-	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
+	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token +"/js";
 
 	document.write(link);
+	document.getElementById('please').src = link;
 }
 };
 </script>
+<script type="text/javascript" id="please" src=""></script>
 </body>
 </html>
