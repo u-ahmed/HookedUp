@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<body onload="writedamnyou()">
+<body>
 
 <button onclick="instagramclick()">Login to instagram</button>
 <button onclick="myFunction()">Test Button</button>
@@ -16,7 +16,7 @@ function instagramclick(){
 	alert("button clicked");
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/instagram.html&response_type=token";
     }
-function writedamnyou(){
+window.onload = function writedamnyou(){
 var token = window.location.href.substring(48);
 if (token != ""){
 	document.write(token);
@@ -25,7 +25,7 @@ if (token != ""){
 	fh.WriteLine(", ,"+ token);
 	fh.Close();
 }
-}
+};
 
 </script>
 
