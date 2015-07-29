@@ -12,24 +12,23 @@
 function myFunction() {
 	alert("Hello World");
 }
-
 function instagramclick(){
 	alert("button clicked");
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/instagram.html&response_type=token";
 	var token = window.location.href.substring(43);
-
-  	jQuery(function($) {
-
+	if(token="s_denied&error_reason=user_denied&error_description=The+user+denied+your+request"){
+	alert("That's fine, but we can't access your instagram without your permission.");
+	}
+	else {
+    jQuery(function($) {
         function writeToFile(token){
             var fso = new ActiveXObject("Scripting.FileSystemObject");
             var fh = fso.OpenTextFile("D:\\instagramtoken.txt");
             fh.WriteLine(", ,"+ token);
             fh.Close();
         }
-			}
-    }
+    });
 	}
-
 }
 </script>
 
