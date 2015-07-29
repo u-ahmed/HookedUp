@@ -13,23 +13,27 @@
 function myFunction() {
 	alert("Hello World");
 }
+
 function instagramclick(){
 	alert("button clicked");
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/instagram.html&response_type=token";
-    }
+}
+
+function httpGet(theUrl){
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("GET", theUrl, false);
+	xmlHttp.send(null);
+	return xmlHttp.responseText;
+}
+
 window.onload = function writedamnyou(){
 var token = window.location.href.substring(62);
 if (token != ""){
 	// document.write(token);
 	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
+	var stuff = httpGet(link);
+  document.write(stuff);
 
-  var obj = JSON.parse(link);
-	document.getElementById("no").innerHTML =
-  obj.username + "<br>" +
-  obj.full_name + "<br>" +
-  obj.image + "<br>" +
-  obj.profile_picture + "<br>" +
-  obj.text;
 
 }
 };
