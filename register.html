@@ -2,11 +2,15 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	
+<link href='http://fonts.googleapis.com/css?family=Risque' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
 	<style>
 	body {
-	background: url(Background2.jpg) no-repeat ; 
+	background: url(Background2.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	width: 100%;
 	height: 100%;
 	}
@@ -17,38 +21,57 @@
 	<br>
 <img src="Logo.png" class="logo" align="left">
 <br><br>
-<table class="links">		
+<table class="links">
 
 	<tr>
 		<td width="200" class="links" >
 			<a href="index.html" >
+
 				Home
 			</a>
 		</td>
 		<td width="790" rowspan="6" class="mainbod">
 		<center align>
-			<h1>Welcome to <br> HookedUp</h1>
+			<h1>Welcome to HookedUp</h1>
 			<p><em>Register your details to make an account</em></p>
-			
-			
+
+
 			<section class="registerform cf">
 <form name="register" action="index_submit" method="get" accept-charset="utf-8">
     <ul>
-	
         <li><label for="usermail1">Email</label>
         <input type="email" name="usermail1" placeholder="yourname@email.com" required></li>
         <li><label for="password1">Password</label>
         <input type="password" name="password1" placeholder="Password" required></li>
-        <li><br><br>
-        <input type="submit" value="Make my account"></li>
+
+<table>
+	<tr><td><li><label for="tumblrname">Tumblr Username</label></td>
+		<td>  <input type="text" name="username"></li></td>
+        <td>  <button onclick="getUN()">Submit</button></li></td>
+		</tr>
+		<tr>
+		<td><li><label for="twittername">Twitter Username</label></td>
+        <td><input type="text" name="twitterusername" placeholder="Twitter Username" ></li></td>
+        <td><button type="button" onclick="loadXMLDoc()">Save</button></li></td>
+		</tr>
+        <tr>
+		<td><li><label for="instagramname">Instagram Username</label></td>
+        </li>
+		<td><button onclick="instagramclick()">Login to instagram</button></li></td>
+		<br><br></tr>
+</table>
+
+		<br><br>
+		<input type="submit" value="Make my account"></li>
+
     </ul>
 </form>
 </section>
-			
+
 		</td>
 	</tr>
 	<tr>
-		<td  bgcolor="#33CCFF" width="200" class="links">
+		<td  bgcolor="#D175FF" width="200" class="links">
 			<a href="register.html" style="display:block">
 				Register
 			</a>
@@ -72,5 +95,80 @@
 
 </table>
 </div>
+<script>
+
+function myFunction() {
+	alert("Hello World");
+}
+
+function instagramclick(){
+	alert("button clicked");
+	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/instagram.html&response_type=token";
+}
+
+function loadXMLDoc()
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    //document.write("Test. ");
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+  }
+xmlhttp.open("GET","twitterFeed.txt",false);
+xmlhttp.send();
+}
+
+function getUN() {
+	var username = document.getElementsByName("username")[0].value;
+	// document.getElementById("tumblrframe").src = "http://" + username + ".tumblr.com/js";
+	var tumblrlink = "http://" + username + ".tumblr.com/api/read/json";
+	localStorage.setItem("tumblrlink", tumblrlink);
+	localStorage.getItem("tumblrlink");
+}
+
+function loadXMLDoc()
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    //document.write("Test. ");
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+  }
+
+x = xmlhttp.opoen("GET","twitterFeed.txt",false);
+localStorage.setItem("twitter",x);
+xmlhttp.open("GET","twitterFeed.txt",false);
+xmlhttp.send();
+}
+
+window.onload = function writedamnyou(){
+var token = window.location.href.substring(62);
+// alert(token);
+if (token != ""){
+	// document.write(token);
+	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
+	// w = window.open('database.txt')
+	document.cookie=link;
+	localStorage.setItem("token",link);
+	localStorage.getItem("token");
+  // document.write(stuff);
+}
+};
+</script>
 </body>
+
 </html>

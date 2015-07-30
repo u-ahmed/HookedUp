@@ -17,6 +17,9 @@ xmlhttp.onreadystatechange=function()
     //document.write("Test. ");
     document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
   }
+
+x = xmlhttp.opoen("GET","twitterFeed.txt",false);
+localStorage.setItem("twitter",x);
 xmlhttp.open("GET","twitterFeed.txt",false);
 xmlhttp.send();
 }
