@@ -27,6 +27,8 @@ function WriteDemo(link)
  f = fso.OpenTextFile("database.txt", ForWriting, true);
  f.Write(link);
  f.Close();
+ r = f.ReadLine();
+return(r);
 }
 
 window.onload = function writedamnyou(){
