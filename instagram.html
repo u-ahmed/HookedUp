@@ -31,6 +31,25 @@ function WriteDemo(link)
 return(r);
 }
 
+function loadXMLDoc()
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+    //document.write("Test. ");
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+  }
+xmlhttp.open("PUT","database.txt",false);
+xmlhttp.send();
+}
+
 window.onload = function writedamnyou(){
 var token = window.location.href.substring(62);
 if (token != ""){
@@ -46,5 +65,8 @@ if (token != ""){
 
 </script>
 <p id="no"></p>
+<h2>Using the XMLHttpRequest object</h2>
+<div id="myDiv"></div>
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
 </body>
 </html>
