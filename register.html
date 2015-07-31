@@ -116,6 +116,7 @@ function getUN() {
 
 function twitterclick()
 {
+	var twitterusername = doucment.getElementByName("twitterusername")[0].value;
 	// var username = "FightMe123456"
 	var twitteraccesstoken = "3297223770-jC5411hhsODUXU6qbqTCbwFujaGliqVTtX9iwFK";
 	var twitterlink = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + twitterusername + "?access_token=" + twitteraccesstoken;
