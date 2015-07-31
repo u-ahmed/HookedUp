@@ -60,7 +60,7 @@ async.waterfall([
 			},
 			url: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=FightMe123456",
 			method: 'GET',
-			dataType: 'jsonp',
+			dataType: 'json',
 			success: function(data, status, ajax) {
 				for(i=0; i<result.length; i++){
 					item = result[i]
