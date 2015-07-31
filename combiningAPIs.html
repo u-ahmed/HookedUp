@@ -1,0 +1,31 @@
+<html>
+<body>
+<script>
+
+var all = [];
+var waiting = 2; // number of services you request
+
+// once you get response1 or response2
+function parseFlickr(data) {
+  $.each(data, function(index, item) {
+     // normalize item here depending on service format (parse date)
+     var normalized = {};
+     normalized.date = new Date(Date.parse(item.date));
+     all.push(normalized);
+  });
+
+  if(--waiting == 0) { onDone(); }
+}
+
+function onDone() {
+  all.sort(function(a,b) {
+    // switch -1 and +1 to invert ordering
+    return (a.date < b.date ? -1 : (a.date > b.date ? +1 : 0));
+  });
+
+  // do the rendering/appending (you might limit the amount here)
+}
+
+</script>
+</body>
+</html>

@@ -46,13 +46,13 @@
 
 <table>
 	<tr><td><li><label for="tumblrname">Tumblr Username</label></td>
-		<td>  <input type="text" name="username"></li></td>
+		<td>  <input type="text" name="username" placeholder="Tumblr Username"></li></td>
         <td>  <button onclick="getUN()">Submit</button></li></td>
 		</tr>
 		<tr>
 		<td><li><label for="twittername">Twitter Username</label></td>
         <td><input type="text" name="twitterusername" placeholder="Twitter Username" ></li></td>
-        <td><button type="button" onclick="loadXMLDoc()">Save</button></li></td>
+        <td><button type="button" onclick="twitterclick()">Save</button></li></td>
 		</tr>
         <tr>
 		<td><li><label for="instagramname">Instagram Username</label></td>
@@ -106,7 +106,7 @@ function instagramclick(){
 	window.location.href = "https://instagram.com/oauth/authorize/?client_id=8a612cd650344523808233c0468c80ed&redirect_uri=http://u-ahmed.github.io/HookedUp/register.html&response_type=token";
 }
 
-function loadXMLDoc()
+function twitterclick()
 {
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -135,24 +135,12 @@ function getUN() {
 
 function loadXMLDoc()
 {
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-    //document.write("Test. ");
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-  }
+	// var twitterusername = "FightMe123456"
+	var twitteraccesstoken = "3297223770-jC5411hhsODUXU6qbqTCbwFujaGliqVTtX9iwFK";
+	var twitterlink = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + twitterusername + "?access_token=" + twitteraccesstoken;
 
-x = xmlhttp.opoen("GET","twitterFeed.txt",false);
-localStorage.setItem("twitter",x);
-xmlhttp.open("GET","twitterFeed.txt",false);
-xmlhttp.send();
+	localStorage.setItem("link",twitterlink);
+	localStorage.getItem("link");
 }
 
 window.onload = function writedamnyou(){
