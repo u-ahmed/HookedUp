@@ -1,0 +1,3 @@
+instagram	:https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e
+twitter		:https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=FightMe123456?access_token=3297223770-jC5411hhsODUXU6qbqTCbwFujaGliqVTtX9iwFK
+tumblr		:http://justalexthings.tumblr.com/api/read/json

@@ -1,0 +1,84 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+<body>
+<script>
+
+var postobjects = ['blog_name','id','post_url','type','timestamp','date','format','reblog_key','tags','bookmarklet','mobile','source_url','source_title','liked','state','total_posts','coordinates','favorited','created_at','id_str','entities','url','hashtags','retweet_count','user','name','profile_image_url','created_time','images','user','videos','comments'];
+
+alert("Hello!");
+
+$.ajax({
+	url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
+	method: 'GET',
+	dataType: 'jsonp',
+	success: function(data, status, ajax) {
+		console.log(data.data);
+		console.log(status);
+	},
+	error: function() {
+		console.log('There was an error!');
+	}
+});
+
+$.ajax({
+	url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
+	method: 'GET',
+	dataType: 'jsonp',
+	success: function(data, status, ajax) {
+		console.log(data.data);
+		console.log(status);
+	},
+	error: function() {
+		console.log('There was an error!');
+	}
+});
+
+$.ajax({
+	url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
+	method: 'GET',
+	dataType: 'jsonp',
+	success: function(data, status, ajax) {
+		console.log(data.data);
+		console.log(status);
+	},
+	error: function() {
+		console.log('There was an error!');
+	}
+});
+
+
+//var instagramJSON = $.get("https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
+ function(data) {	alert(data);});
+
+/*
+		function(feed) {
+			// Create an empty array to store images
+			var thumbs = [];
+
+			// Loop through the items
+			for(var i=0, l= postobjects.length; i < l; ++i) 
+			{
+				// Manipulate the image to get thumb and medium sizes
+				var img = feed.items[i].media.m.replace(
+					/^(.*?)_m\.jpg$/, 
+					'<a href="$1.jpg"><img src="$1_s.jpg" alt="" /></a>'
+				);
+
+				// Add the new element to the array
+				thumbs.push(img);
+			}
+
+			// Display the thumbnails on the page
+			$('#feed').html(thumbs.join(''));
+
+			// A function to add a lightbox effect
+			addLB();
+		},
+		dataType:'jsonp'
+	});
+*/
+</script>
+</body>
+</html>
