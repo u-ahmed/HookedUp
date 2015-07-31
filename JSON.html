@@ -8,7 +8,7 @@
 
 var postobjects = ['blog_name','id','post_url','type','timestamp','date','format','reblog_key','tags','bookmarklet','mobile','source_url','source_title','liked','state','total_posts','coordinates','favorited','created_at','id_str','entities','url','hashtags','retweet_count','user','name','profile_image_url','created_time','images','user','videos','comments'];
 
-alert("Hello!");
+// alert("Hello!");
 
 async.waterfall([
 
@@ -88,6 +88,7 @@ async.waterfall([
 	}
 
 ], function (err, result) {
+	consol.log(err);
 	console.log('Hello World!');
   console.log(result);
 });
