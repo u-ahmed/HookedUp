@@ -23,6 +23,7 @@ async.waterfall([
 			method: 'GET',
 			dataType: 'jsonp',
 			success: function(data, status, ajax) {
+				console.log(data);
 				result = result.concat(data.data);
 				cb(null, result);
 			},
@@ -40,7 +41,8 @@ async.waterfall([
 			method: 'GET',
 			dataType: 'jsonp',
 			success: function(data, status, ajax) {
-				result = result.concat(data.data);
+				console.log(data);
+				result = result.concat(data.posts);
 				cb(null, result);
 			},
 			error: function(err) {
@@ -57,7 +59,11 @@ async.waterfall([
 			method: 'GET',
 			dataType: 'jsonp',
 			success: function(data, status, ajax) {
-				result = result.concat(data.data);
+				for(i=0; i<result.length; i++){
+					item = result[i]
+				}
+				console.log(data);
+				result = result.concat(data.posts);
 				cb(null, result);
 			},
 			error: function(err) {
@@ -71,8 +77,20 @@ async.waterfall([
 
 		result.sort(function(a, b) {
 
-			a.timestamp = a.created_time;
-			b.timestamp = b.created_time;
+			/*if(a.created_time) {
+				timestampA = parseInt(a.created_time);
+			} else if(a['unix-timestamp']) {
+				timestampA = a['unix-timestamp'];
+			}
+
+			if(b.created_time) {
+				timestampB = parseInt(a.created_time);
+			} else if(b['unix-timestamp']) {
+				timestampB = b['unix-timestamp'];
+			}*/
+
+			a.timestamp = a['unix-timestamp'] || parseInt(a.created_time);
+			b.timestamp = b['unix-timestamp'] || parseInt(b.created_time);
 
 			if (a.timestamp == b.timestamp) { return 0; }
     	if (a.timestamp > b.timestamp) {
@@ -91,6 +109,14 @@ async.waterfall([
 	console.log(err);
 	console.log('Hello World!');
   console.log(result);
+
+	for(i=0; i<result.length; i++){
+		item = result[i]
+
+		for(key in item) {
+			$( "#feed" ).append( "<p>"+ item[key] +"</p>" );
+		}
+	}
 });
 
 /*
@@ -166,5 +192,6 @@ $.ajax({
 	});
 */
 </script>
+<div id="feed"></div>
 </body>
 </html>
