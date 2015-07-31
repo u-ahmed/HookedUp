@@ -1,6 +1,7 @@
 <html>
 <head>
 	<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="async.js"></script>
 </head>
 <body>
 <script>
@@ -9,8 +10,90 @@ var postobjects = ['blog_name','id','post_url','type','timestamp','date','format
 
 alert("Hello!");
 
+async.waterfall([
+
+	function (cb) {
+		cb(null, []);
+	},
+
+	function (result, cb) {
+
+		$.ajax({
+			url: localStorage.getItem("tumblr link"),
+			method: 'GET',
+			dataType: 'jsonp',
+			success: function(data, status, ajax) {
+				result = result.concat(data.data);
+				cb(null, result);
+			},
+			error: function(err) {
+				cb(err, result)
+			}
+		});
+
+	},
+
+	function (result, cb) {
+
+		$.ajax({
+			url: localStorage.getItem("instagrm link"),
+			method: 'GET',
+			dataType: 'jsonp',
+			success: function(data, status, ajax) {
+				result = result.concat(data.data);
+				cb(null, result);
+			},
+			error: function(err) {
+				cb(err, result)
+			}
+		});
+
+	},
+
+	function (result, cb) {
+
+		$.ajax({
+			url: localStorage.getItem("twitter link"),
+			method: 'GET',
+			dataType: 'jsonp',
+			success: function(data, status, ajax) {
+				result = result.concat(data.data);
+				cb(null, result);
+			},
+			error: function(err) {
+				cb(err, result)
+			}
+		});
+
+	},
+
+	function (result, cb) {
+
+		result.sort(function(a, b) {
+
+			a.timestamp = a.created_time;
+			b.timestamp = b.created_time;
+
+			if (a.timestamp == b.timestamp) { return 0; }
+    	if (a.timestamp > b.timestamp) {
+        return -1;
+    	} else {
+        return 1;
+    	}
+
+		});
+
+		cb(null, result);
+
+	}
+
+], function (err, result) {
+	console.log('Hello World!');
+  console.log(result);
+});
+
 $.ajax({
-	url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
+	url: localStorage.getItem("tumblr link"),
 	method: 'GET',
 	dataType: 'jsonp',
 	success: function(data, status, ajax) {
@@ -23,7 +106,7 @@ $.ajax({
 });
 
 $.ajax({
-	url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
+	url: localStorage.getItem("instagram link"),
 	method: 'GET',
 	dataType: 'jsonp',
 	success: function(data, status, ajax) {
@@ -50,7 +133,7 @@ $.ajax({
 
 
 //var instagramJSON = $.get("https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
- function(data) {	alert(data);});
+ //function(data) {	alert(data);};
 
 /*
 		function(feed) {
@@ -58,11 +141,11 @@ $.ajax({
 			var thumbs = [];
 
 			// Loop through the items
-			for(var i=0, l= postobjects.length; i < l; ++i) 
+			for(var i=0, l= postobjects.length; i < l; ++i)
 			{
 				// Manipulate the image to get thumb and medium sizes
 				var img = feed.items[i].media.m.replace(
-					/^(.*?)_m\.jpg$/, 
+					/^(.*?)_m\.jpg$/,
 					'<a href="$1.jpg"><img src="$1_s.jpg" alt="" /></a>'
 				);
 
