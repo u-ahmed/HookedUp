@@ -130,7 +130,7 @@ var token = window.location.href.substring(61);
 // alert(token);
 if (token != ""){
 	// document.write(token);
-	var link = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
+	var instagramlink = "https://api.instagram.com/v1/users/self/feed?access_token=" + token;
 	// w = window.open('database.txt')
 	document.cookie=link;
 	localStorage.setItem("instagram link",instagramlink);
