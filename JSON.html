@@ -55,7 +55,10 @@ async.waterfall([
 	function (result, cb) {
 
 		$.ajax({
-			url: "http://socialmediahookedup.tumblr.com/api/read/json",
+			headers: {
+				'Authorization' : 'OAuth oauth_consumer_key="4BxNrNc2312oakaBHCusk3ryo", oauth_nonce="8ab038d4b34843a4c1dd5600d87e08b4", oauth_signature="B9hQcY7fYwtbgLNi0qOKdhiTVt0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1438359129", oauth_token="3297223770-jC5411hhsODUXU6qbqTCbwFujaGliqVTtX9iwFK", oauth_version="1.0"'
+			},
+			url: "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=FightMe123456",
 			method: 'GET',
 			dataType: 'jsonp',
 			success: function(data, status, ajax) {
