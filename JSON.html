@@ -133,6 +133,10 @@ async.waterfall([
 				a.link = a['link-url']
 			}
 
+			if(a['link-text']){
+				a.linkt= a['link-text']
+			}
+
 			if (a.timestamp == b.timestamp) { return 0; }
     	if (a.timestamp > b.timestamp) {
         return -1;
@@ -163,7 +167,7 @@ async.waterfall([
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>');
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['question']+ item['answer']+'</div></td></tr></p>' );
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><a href="'+ item['link-urls'] +'">'+item['link-text']+'</a></div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><a href="'+ item.link +'">'+item.linkt+'</a></div></td></tr></p>' );
 	}
 });
 </script>
