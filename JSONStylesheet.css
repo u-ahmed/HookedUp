@@ -29,4 +29,6 @@ body, html {
 	width: 150px;
 	text-align: left;
 	background-color: white;
+	color: white;
+	font-size: 40px;
 }
