@@ -161,13 +161,27 @@ async.waterfall([
 		 if(item.postername){
 			$( "#feed" ).append( '<p><tr><td><div id="username" align="left">'+ item.postername + '</div></td><td></td>/<tr></p>' );
 }
+		if(item.phimages){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><img src="'+ item.phimages +'"></div></td></tr></p>' );
+		}
+		if(item.captionbody){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item.captionbody + '</div></td></tr></p>' );
+		}
+		if(item.playervideos){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item.playervideos + '</div></td></tr></p>' );
+		}
+		if(item['quote-text']){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>');
+		}
+		if(item['url']){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
+		}
+		if(item['question']){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['question']+ item['answer']+'</div></td></tr></p>' );
+		}
+		if(item.link){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><a href="'+ item.link +'">'+item.linkt+'</a></div></td></tr></p>' );
+		}
 	}
 });
 </script>
