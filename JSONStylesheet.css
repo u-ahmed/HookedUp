@@ -19,7 +19,7 @@ body, html {
 #content {
 	height: 1px;
 	width: 445px;
-	text-align: middle;
+	/*text-align: middle;*/
 	background-color: white;
 	padding: 5px;
 }

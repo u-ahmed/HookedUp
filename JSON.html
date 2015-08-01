@@ -151,9 +151,9 @@ async.waterfall([
 	for(i=0; i<result.length; i++) {
 		item = result[i]
 
-		//if(item.postername){
-		//	$( "#feed" ).append( '<p><tr><td><div id="username" align="left">'+ item.postername + '</div></td><td></td>/<tr></p>' );
-//}
+		if(item.postername){
+			$( "#feed" ).append( '<p><tr><td><div id="username" align="left">'+ item.postername + '</div></td><td></td>/<tr></p>' );
+}
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><img src="'+ item.phimages +'"></div></td></tr></p>' );
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item.captionbody + '</div></td></tr></p>' );
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item.playervideos + '</div></td></tr></p>' );
