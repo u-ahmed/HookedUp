@@ -179,7 +179,9 @@ async.waterfall([
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>');
 		}
 		if(item['url']){
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
+			if(item['excerpt']){
+				$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
+			}
 		}
 		if(item['question']){
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;"valign:center;>'+ item['question']+ item['answer']+'</div></td></tr></p>' );
