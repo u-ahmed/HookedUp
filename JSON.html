@@ -37,7 +37,7 @@ async.waterfall([
 	function (result, cb) {
 
 		$.ajax({
-			url: "http://justalexthings.tumblr.com/api/read/json",
+			url: "http://socialmediahookedup.tumblr.com/api/read/json",
 			method: 'GET',
 			dataType: 'jsonp',
 			success: function(data, status, ajax) {
@@ -51,7 +51,7 @@ async.waterfall([
 		});
 
 	},
-
+/*
 	function (result, cb) {
 
 		$.ajax({
@@ -75,7 +75,7 @@ async.waterfall([
 		});
 
 	},
-
+*/
 	function (result, cb) {
 
 		result.sort(function(a, b) {
@@ -95,6 +95,29 @@ async.waterfall([
 			a.timestamp = a['unix-timestamp'] || parseInt(a.created_time);
 			b.timestamp = b['unix-timestamp'] || parseInt(b.created_time);
 
+			if(a['photo-url-1280']) {
+				a.phimages = a['photo-url-1280']
+			} else if (a.images) {
+				a.phimages = a.images['standard_resolution'].url;
+			}
+
+			if(a.user) {
+			  a.postername = a.user.username;
+			}
+
+			if(a.caption) {
+				a.captionbody = a.caption.text
+			} else if (a.slug) {
+				a.captionbody = a.slug;
+			}
+
+			if(a['video-player']){
+				a.playervideos = a['video-player']
+			}
+		  else if (a.videos) {
+		  	a.playervideos = a.videos
+		  }
+
 			if (a.timestamp == b.timestamp) { return 0; }
     	if (a.timestamp > b.timestamp) {
         return -1;
@@ -113,88 +136,20 @@ async.waterfall([
 	console.log('Hello World!');
   console.log(result);
 
-	for(i=0; i<result.length; i++){
+	for(i=0; i<result.length; i++) {
 		item = result[i]
-
-		for(key in item) {
-			$( "#feed" ).append( "<p>"+ item[key] +"</p>" );
-		}
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content"><img src="'+ item.phimages +'"></div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td><div id="username">'+ item.postername + '</div></td><td></td>/<tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content">'+ item.captionbody + '</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content">'+ item.playervideos + '</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content">'+ item['question']+ item['answer']+'</div></td></tr></p>' );
 	}
 });
-
-/*
-$.ajax({
-	url: localStorage.getItem("tumblr link"),
-	method: 'GET',
-	dataType: 'jsonp',
-	success: function(data, status, ajax) {
-		console.log(data.data);
-		console.log(status);
-	},
-	error: function() {
-		console.log('There was an error!');
-	}
-});
-
-$.ajax({
-	url: localStorage.getItem("instagram link"),
-	method: 'GET',
-	dataType: 'jsonp',
-	success: function(data, status, ajax) {
-		console.log(data.data);
-		console.log(status);
-	},
-	error: function() {
-		console.log('There was an error!');
-	}
-});
-
-
-$.ajax({
-	url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
-	method: 'GET',
-	dataType: 'jsonp',
-	success: function(data, status, ajax) {
-		console.log(data.data);
-		console.log(status);
-	},
-	error: function() {
-		console.log('There was an error!');
-	}
-});
-*/
-
-//var instagramJSON = $.get("https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
- //function(data) {	alert(data);};
-
-/*
-		function(feed) {
-			// Create an empty array to store images
-			var thumbs = [];
-
-			// Loop through the items
-			for(var i=0, l= postobjects.length; i < l; ++i)
-			{
-				// Manipulate the image to get thumb and medium sizes
-				var img = feed.items[i].media.m.replace(
-					/^(.*?)_m\.jpg$/,
-					'<a href="$1.jpg"><img src="$1_s.jpg" alt="" /></a>'
-				);
-
-				// Add the new element to the array
-				thumbs.push(img);
-			}
-
-			// Display the thumbnails on the page
-			$('#feed').html(thumbs.join(''));
-
-			// A function to add a lightbox effect
-			addLB();
-		},
-		dataType:'jsonp'
-	});
-*/
 </script>
-<div id="feed"></div>
+<div id="feed">
+
+</div>
 </body>
 </html>
