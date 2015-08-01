@@ -35,7 +35,7 @@ async.waterfall([
 	function (result, cb) {
 
 		$.ajax({
-			url: 	localStorage.getItem("isntagram link");
+			url: 	localStorage.getItem("isntagram link"),
 			// url: "https://api.instagram.com/v1/users/self/feed?access_token=233291163.8a612cd.c49f77de073746e9a2f53116b720302e",
 			method: 'GET',
 			dataType: 'jsonp',
@@ -54,7 +54,7 @@ async.waterfall([
 	function (result, cb) {
 
 		$.ajax({
-			url : 	localStorage.getItem("tumblr link");
+			url : 	localStorage.getItem("tumblr link"),
 			// url: "http://socialmediahookedup.tumblr.com/api/read/json",
 			method: 'GET',
 			dataType: 'jsonp',
