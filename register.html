@@ -94,7 +94,7 @@ function instagramclick(){
 function getUN() {
 	var username = document.getElementsByName("tumblrusername")[0].value;
 	// document.getElementById("tumblrframe").src = "http://" + username + ".tumblr.com/js";
-	var tumblrlink = "http://" + tumblrusername + ".tumblr.com/api/read/json";
+	var tumblrlink = "http://" + username + ".tumblr.com/api/read/json";
 	localStorage.setItem("tumblr link", tumblrlink);
 	localStorage.getItem("tumblr link");
 }
