@@ -164,35 +164,35 @@ async.waterfall([
 		item = result[i]
 
 		 if(item.postername){
-			$( "#feed" ).append( '<p><tr><td><div id="username" align="left " style="background-color:white;">'+ item.postername + '</div></td><td></td>/<tr></p>' );
+			$( "#feed" ).append( '<p><tr><td><div id="username" align="left" style="background-color:white;max-width:250px; min-height:100px; text-align:center;">'+ item.postername + '</div></td><td></td>/<tr></p>' );
 }
 		if(item.phimages){
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px; min-height:100px;valign:center;"><img src="'+ item.phimages +'"></div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px; min-height:100px;valign:center; margin:auto;"><img src="'+ item.phimages +'"></div></td></tr></p>' );
 		}
 		if(item.captionbody){
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item.captionbody + '</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;">'+ item.captionbody + '</div></td></tr></p>' );
 		}
 		if(item.playervideos){
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item.playervideos + '</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;">'+ item.playervideos + '</div></td></tr></p>' );
 		}
 		if(item['quote-text']){
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>');
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>');
 		}
 		if(item['url']){
 			if(item['excerpt']){
-				$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
+				$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
 			}
 		}
 		if(item['question']){
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;"valign:center;>'+ item['question']+ item['answer']+'</div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;">'+ item['question']+ item['answer']+'</div></td></tr></p>' );
 		}
 		if(item.link){
 			if (item.linkt) {
 
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;"><a href="'+ item.link +'">'+item.linkt+'</a></div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;"><a href="'+ item.link +'">'+item.linkt+'</a></div></td></tr></p>' );
 		}
 		else {
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;"><a href="'+ item.link +'">link</a></div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle" style="background-color:white;max-width:750px;min-height:100px;valign:center;margin:auto;"><a href="'+ item.link +'">link</a></div></td></tr></p>' );
 }
 		}
 	}
@@ -200,7 +200,7 @@ async.waterfall([
 </script>
 
 <div id="thecontainer">
-	<div id="feed" align="middle">
+	<div id="feed">
 		<a href="http://www.socialmediahookedup.co.uk"><img src="Logo.png" class="logo" align="left"></a>
 	</div>
 </div>
