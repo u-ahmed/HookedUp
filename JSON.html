@@ -3,7 +3,7 @@
 	<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
 	<script src="async.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="JSONstylesheet.css">
+		<link rel="stylesheet" type="text/css" href="JSONStylesheet.css">
 
 	<style>
 	body {
@@ -164,7 +164,7 @@ async.waterfall([
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['quote-text'] + item['quote-source'] +'</div></td></tr></p>');
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['url'] + item['excerpt'] +'</div></td></tr></p>' );
 			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle">'+ item['question']+ item['answer']+'</div></td></tr></p>' );
-			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><a href="'+ item['link-url'] +'">'+item['link-text']+'</a></div></td></tr></p>' );
+			$( "#feed" ).append( '<p><tr><td></td><td><div id="content" align="middle"><a href="'+ item['link-urls'] +'">'+item['link-text']+'</a></div></td></tr></p>' );
 	}
 });
 </script>
