@@ -1,0 +1,32 @@
+#feed {
+	/*background-color: rgba(245, 245, 245, 0.8);*/
+	min-height: 100%;
+	/*margin-left: 530px;*/
+	/*position: absolute;*/
+}
+
+body, html {
+	height: 100%;
+}
+
+#thecontainer {
+	margin: auto;
+	width: 700px;
+	height: 400px;
+	background-color: (245, 245, 245, 0.8);
+}
+
+#content {
+	height: 1px;
+	width: 445px;
+	text-align: middle;
+	background-color: white;
+	padding: 5px;
+}
+
+#username {
+	height: 1px;
+	width: 150px;
+	text-align: left;
+	background-color: white;
+}
